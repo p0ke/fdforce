@@ -613,7 +613,8 @@ $ALLOWED_CMD=array(
 	'format',
 	'diskname',
 	'dosimport',
-	'putdos');
+	'putdos',
+	':q');
 
 $ALLOWED_CMD_DESCRIP=array(
 	'Exit program',
@@ -629,7 +630,7 @@ $ALLOWED_CMD_DESCRIP=array(
 	'This help',
 	'Control fat vs directory consistency',
 	'Export file from .fd',
-	'Check unlisted fat block in directory',
+	'/!\ bugs : Check unlisted fat block in directory',
 	'Import file into the fd, parameter int (first fat block)',
 	'Print out block content',
 	'Put directory into an array',
@@ -641,7 +642,8 @@ $ALLOWED_CMD_DESCRIP=array(
 	'format loaded fd',
 	'set discname (8 chars) : discname MYDISCNM',
 	'Import dos blocks on disc',
-	'Put embeded dos on fat');
+	'Put embeded dos on fat',
+	'vim like quit');
 
 $fichier='';
 
@@ -1679,6 +1681,7 @@ function check_command($line)
 	// declare new instruction alias here !
 	global $ALLOWED_CMD;
 	$line=str_replace("exit", "quit", $line);
+	$line=str_replace(":q", "quit", $line);
 	$line=str_replace("dir", "ls", $line);
 	if(array_search($line, $ALLOWED_CMD)==false)return FALSE;
 	return $line;
@@ -1696,7 +1699,7 @@ function help()
 	$HEADER=$HEADER. "*  #   # #  #   #  # # # #   #       *\n";
 	$HEADER=$HEADER. "*  #   ##   #    ##  # #  ## ###  #  *\n";
 	$HEADER=$HEADER. "*                                    *\n";
-	$HEADER=$HEADER. "* syntax : fd_reader.php yourfile.fd *\n";
+	$HEADER=$HEADER. "* syntax : fdforce.php yourfile.fd   *\n";
 	$HEADER=$HEADER. "* read fd files used on TO7/70       *\n";
 	$HEADER=$HEADER. "* p0ke@hotmail.co.th 05/11/2018      *\n";
 	$HEADER=$HEADER. "**************************************\n";
