@@ -1702,6 +1702,7 @@ function help()
 	$HEADER=$HEADER. "* syntax : fdforce.php yourfile.fd   *\n";
 	$HEADER=$HEADER. "* read fd files used on TO7/70       *\n";
 	$HEADER=$HEADER. "* p0ke@hotmail.co.th 05/11/2018      *\n";
+	$HEADER=$HEADER. "* p0ke/flush aka Armand Patou        *\n";
 	$HEADER=$HEADER. "**************************************\n";
 	$HEADER=str_replace("X", chr(0x8c), $HEADER); //0x8c
 	echo $HEADER;
